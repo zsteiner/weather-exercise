@@ -1,0 +1,20 @@
+.forecastHour {
+  display: flex;
+  align-items: center;
+}
+
+.time {
+  flex: 0 0 3rem;
+  font-size: .75rem;
+}
+
+.weatherIcon {
+  width: 2rem;
+}
+
+.temp {
+  &Main {
+    margin: 0 1rem;
+    flex: 0 0 5rem;
+  }
+}
