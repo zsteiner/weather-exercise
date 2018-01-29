@@ -10,11 +10,11 @@
 
 .weatherIcon {
   width: 2rem;
+  flex: 0 0 2rem;
 }
 
 .temp {
   &Main {
     margin: 0 1rem;
-    flex: 0 0 5rem;
   }
 }

@@ -10,12 +10,14 @@ const ForecastDay = ({ day, forecast }) => {
     return (<ForecastHour key={index} forecast={item}/>);
   });
 
-  return [
-    <h3 key={0} className={styles.day}>{day}</h3>,
-    <ul key={1} className={styles.forecast}>
-      { forecastItems }
-    </ul>
-  ];
+  return (
+    <article className={styles.forecastDay}>
+      <h3 key={0} className={styles.day}>{day}</h3>
+      <ul key={1} className={styles.forecast}>
+        { forecastItems }
+      </ul>
+    </article>
+  );
 };
 
 ForecastDay.propTypes = {
