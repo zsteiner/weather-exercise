@@ -91,12 +91,15 @@ class App extends Component {
     return (
       <div className={styles.app}>
         <header className={styles.header}>
-          <button onClick={this.getLocation} className={styles.locationButton}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fillRule="evenodd" d="M8 5.09C6.393 5.09 5.09 6.394 5.09 8c0 1.607 1.303 2.91 2.91 2.91 1.607 0 2.91-1.303 2.91-2.91 0-1.607-1.303-2.91-2.91-2.91zm6.502 2.183c-.335-3.033-2.742-5.44-5.775-5.775V0H7.273v1.498c-3.033.335-5.44 2.742-5.775 5.775H0v1.454h1.498c.335 3.033 2.742 5.44 5.775 5.775V16h1.454v-1.498c3.033-.335 5.44-2.742 5.775-5.775H16V7.273h-1.498zM8 13.09c-2.815 0-5.09-2.276-5.09-5.091 0-2.815 2.275-5.09 5.09-5.09S13.09 5.184 13.09 8 10.816 13.09 8 13.09z"/></svg></button>       
+          <button onClick={this.getLocation} className={styles.locationButton}><svg className="icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fillRule="evenodd" d="M8 5.09C6.393 5.09 5.09 6.394 5.09 8c0 1.607 1.303 2.91 2.91 2.91 1.607 0 2.91-1.303 2.91-2.91 0-1.607-1.303-2.91-2.91-2.91zm6.502 2.183c-.335-3.033-2.742-5.44-5.775-5.775V0H7.273v1.498c-3.033.335-5.44 2.742-5.775 5.775H0v1.454h1.498c.335 3.033 2.742 5.44 5.775 5.775V16h1.454v-1.498c3.033-.335 5.44-2.742 5.775-5.775H16V7.273h-1.498zM8 13.09c-2.815 0-5.09-2.276-5.09-5.091 0-2.815 2.275-5.09 5.09-5.09S13.09 5.184 13.09 8 10.816 13.09 8 13.09z"/></svg> Get my location</button>       
           <input type="text" placeholder='Enter Zip Code' onChange={this.updateZip} className={styles.zipcode} value={zipcode} />
-          <button onClick={this.getWeatherData} className={styles.submitButton}>Get My Forcast</button>       
+          <button onClick={this.getWeatherData} className={styles.submitButton}>Get My Forecast</button>       
         </header>
-        {city ? <h1 className={styles.city}>5 Day Forecast for {city}</h1> : null }
-        <Forecast forecast={forecast} />
+        {city ? <h1 className={styles.city}>Forecast for {city}</h1> : null }
+        <div className={styles.forecastBody}>
+          <aside></aside>
+          <Forecast forecast={forecast} />
+        </div>
       </div>
     );
   }

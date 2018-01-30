@@ -4,6 +4,9 @@
 
 .header {
   text-align: center;
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 
 .city {
@@ -19,14 +22,31 @@
 }
 
 .locationButton {
-  font-size: 1.5em;
+  font-size: 1.25em;
+  color: white;
+  margin-right: 1rem;
+  align-self: center;
   margin-bottom: 1rem;
+  
+  svg {
+    position: relative;
+    bottom: -.125em;
+  }
 }
 
 .submitButton {
-  color: white;
-  background-color: #0366d6;
+  color: grey;
+  mix-blend-mode: screen;
+  background-color: white;
   padding: .5rem;
   font-size: 1em;
   margin-bottom: 1rem;
+}
+
+.forecastBody {
+  display: flex;
+  
+  aside {
+    flex: 1 1 40%;
+  }
 }

@@ -1,18 +1,22 @@
 .forecastHour {
-  display: flex;
-  align-items: center;
-  margin-bottom: .5em;
+  text-align: center;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  flex: 0 0 ((1 / 8)  * 100%);
 }
 
 .time {
-  flex: 0 0 3rem;
+  display: block;
   font-size: .75rem;
+  margin: .5em;
 }
 
 .weatherIcon {
+  display: block;
   font-size: 3em;
   flex: 0 0 3rem;
-  color: lighten(black, 40%);
+  color: transparentize(white, .15);
+  mix-blend-mode: screen;
 }
 
 .temp {

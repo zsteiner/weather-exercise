@@ -1,11 +1,25 @@
+html {
+  height: 100%;  
+}
 
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  width: 100%;
+  color: white;
   font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-image: linear-gradient(to bottom, #0250c5 0%, #d43f8d 100%);
+  background-attachment: fixed;
 }
 
 :global {
+  .icon {
+    fill: currentColor;
+    width: 1em;
+    height: 1em;
+  }
+  
   .temp {
     &:after {
       content: '\00B0';
