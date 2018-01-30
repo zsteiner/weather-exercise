@@ -1,26 +1,31 @@
+$hours: 8;
+
 .forecastHour {
   text-align: center;
-  margin-right: 1em;
   margin-bottom: 1em;
-  flex: 0 0 ((1 / 8)  * 100%);
+  padding-right: 1rem;
+  flex: 0 0 ((1 / $hours) * 100%);
+  
+  &:last-child {
+    padding: 0;
+  }
 }
 
 .time {
   display: block;
   font-size: .75rem;
-  margin: .5em;
-}
-
-.weatherIcon {
-  display: block;
-  font-size: 3em;
-  flex: 0 0 3rem;
-  color: transparentize(white, .15);
-  mix-blend-mode: screen;
+  margin: .5rem 0;
 }
 
 .temp {
   &Main {
-    margin: 0 1rem;
+    margin: .5rem 0;
+    font-size: 1.25em;
   }
+}
+
+.icon {
+  display: block;
+  font-size: 2.25em;
+  flex: 0 0 3rem;
 }

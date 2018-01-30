@@ -1,32 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import moment from 'moment';
+import { groupWeatherByDay } from '../../utils/groupWeatherByDay';
 
 import ForecastDay from '../ForecastDay/ForecastDay';
 
 import styles from './Forecast.scss';
 
 const Forecast = ({ forecast }) => {
-  const groupWeatherByDay = () => {
-    const days = new Map();
-  
-    forecast.forEach( hour => {
-      const day = moment(hour.dt*1000).format("ddd MMM D")
 
-      if( !days[day] ) {
-        days[day] = [];
-      }
-
-      days[day].push(hour);
-    })
-    return days;
-  }
-
-  const forecastDays = groupWeatherByDay();
+  const forecastDays = groupWeatherByDay(forecast);
   
   const renderForecastDays = Object.keys(forecastDays).map( (day, index) => {
-    return (<ForecastDay key={index} forecast={forecastDays[day]} day={day}/>);
+    return (<ForecastDay key={index} forecast={forecastDays[day]} />);
   });
 
   return (

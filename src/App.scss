@@ -1,22 +1,31 @@
+@import './variables';
+
 .app {
   padding: 1rem;
+  max-width: $ex-large-width;
+  margin: auto;
 }
 
 .header {
   text-align: center;
   display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   align-content: center;
-  justify-content: center;
+  padding: 1rem;
 }
 
 .city {
   text-align: center;
+  flex: 0 0 100%;
 }
 
 .zipcode {
   padding: .5rem;
   font-size: 1em;
-  width: 8em;
+  min-width: 8em;
+  border: 0;
+  flex: 1 1 auto;
   margin-right: 1rem;
   margin-bottom: 1rem;
 }
@@ -44,9 +53,7 @@
 }
 
 .forecastBody {
-  display: flex;
-  
-  aside {
-    flex: 1 1 40%;
+  @include respond-to(large) {
+    display: flex;
   }
 }

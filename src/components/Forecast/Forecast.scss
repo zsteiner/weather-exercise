@@ -1,3 +1,9 @@
+@import '../../variables';
+
 .forecast {
-  flex: 1 1 60%;
+  overflow: hidden;
+  
+  @include respond-to(large) {
+    flex: 0 0 60%;
+  }  
 }

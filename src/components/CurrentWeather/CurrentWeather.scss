@@ -1,0 +1,59 @@
+@import '../../variables';
+
+.currentWeather {
+  padding: 0 0 3rem;
+  position: relative;
+  
+  @include respond-to(large) {
+    padding: 1rem;
+    flex: 0 0 40%;
+  }
+  
+  &Details {
+    @include respond-to(medium) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    @include respond-to(large) {
+      display: block;
+      padding-left: 0;
+    }
+  }
+}
+
+.currentTemp {
+  font-size: 8rem;
+  margin: 0 0 1rem;
+}
+
+.currentDate {
+  font-size: 1.5em;
+  flex: 0 0 100%;
+}
+
+.icon {
+  margin-right: .3em;
+  font-size: 1.5em;
+}
+
+.currentConditions {
+  font-size: 2em;
+
+  @include respond-to(medium) {
+    padding-top: 2rem;
+    padding-left: 3rem;
+  }
+  
+  @include respond-to(large) {
+    padding: 0;
+  }
+  
+  &Item {
+    margin: 0 0 .5rem;   
+  }
+}
+
+.hourlyHeading {
+  margin: 1em 0 0;
+}
