@@ -1,6 +1,7 @@
 .forecastHour {
   display: flex;
   align-items: center;
+  margin-bottom: .5em;
 }
 
 .time {
@@ -9,8 +10,9 @@
 }
 
 .weatherIcon {
-  width: 2rem;
-  flex: 0 0 2rem;
+  font-size: 3em;
+  flex: 0 0 3rem;
+  color: lighten(black, 40%);
 }
 
 .temp {
