@@ -37,8 +37,8 @@ class App extends Component {
   getForecastData = () => {
     const { lat, lon, units, zipcode } = this.state;
     
-    const zipAPI = `http://api.openweathermap.org/data/2.5/forecast?zip=${zipcode},us&units=${units}&APPID=${apiKey}`;
-    const coordinateAPI = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=${units}&APPID=${apiKey}`;
+    const zipAPI = `https://api.openweathermap.org/data/2.5/forecast?zip=${zipcode},us&units=${units}&APPID=${apiKey}`;
+    const coordinateAPI = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=${units}&APPID=${apiKey}`;
     const api = lat && lon ? coordinateAPI : zipAPI;
     
     axios
@@ -56,8 +56,8 @@ class App extends Component {
   getCurrentWeatherData = () => {
     const { lat, lon, units, zipcode } = this.state;
     
-    const zipAPI = `http://api.openweathermap.org/data/2.5/weather?zip=${zipcode},us&units=${units}&APPID=${apiKey}`;
-    const coordinateAPI = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&APPID=${apiKey}`;
+    const zipAPI = `https://api.openweathermap.org/data/2.5/weather?zip=${zipcode},us&units=${units}&APPID=${apiKey}`;
+    const coordinateAPI = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&APPID=${apiKey}`;
     const api = lat && lon ? coordinateAPI : zipAPI;
     
     axios
