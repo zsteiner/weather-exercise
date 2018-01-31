@@ -48,8 +48,8 @@ const CurrentWeather = ({ currentWeather, forecast }) => {
           </p>
         </div>
       </section>
-      <h3 className={styles.hourlyHeading}>Hourly</h3>
-      {<ForecastDay forecast={forecastToday} hideDate />}
+      <h3 className={styles.hourlyHeading}>Hourly Forecast</h3>
+      {<ForecastDay forecast={forecastToday} hideDate twoRow />}
     </aside>
   );
 };

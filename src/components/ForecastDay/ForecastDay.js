@@ -1,20 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import Date from '../Date/Date';
 import ForecastHour from '../ForecastHour/ForecastHour';
 
 import styles from './ForecastDay.scss';
 
-const ForecastDay = ({ forecast, hideDate }) => {
+const ForecastDay = ({ forecast, hideDate, twoRow }) => {
   const forecastItems = forecast.map( (item, index) => {
-    return (<ForecastHour key={index} forecast={item}/>);
+    return (<ForecastHour key={index} forecast={item} />);
+  });
+
+  const forecastClasses = classNames({
+    [styles.forecast]: true,
+    [styles.twoRow]: twoRow,
   });
   
   return (
     <article className={styles.forecastDay}>
       {!hideDate ? <Date date={forecast[0].dt} /> : null }
-      <ul className={styles.forecast}>
+      <ul className={forecastClasses}>
         { forecastItems }
       </ul>
     </article>
@@ -23,7 +29,8 @@ const ForecastDay = ({ forecast, hideDate }) => {
 
 ForecastDay.propTypes = {
   forecast: PropTypes.array.isRequired,
-  hideDate: PropTypes.bool
+  hideDate: PropTypes.bool,
+  twoRow: PropTypes.bool
 };
 
 export default ForecastDay;
