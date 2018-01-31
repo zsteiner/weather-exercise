@@ -17,18 +17,19 @@ class App extends Component {
     this.state = {
       currentWeather: null,
       city: '',
-      forecast: [],
+      error: null,
+      forecast: null,
       lat: 0,
       lon: 0,
       units: 'imperial',
       zipcode: '',
     };
   }
-  
+
   componentDidMount() {
     this.getLocation();
   }
-  
+
   getForecast = () => {
     this.getForecastData();
     this.getCurrentWeatherData();
@@ -40,7 +41,7 @@ class App extends Component {
     const zipAPI = `https://api.openweathermap.org/data/2.5/forecast?zip=${zipcode},us&units=${units}&APPID=${apiKey}`;
     const coordinateAPI = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=${units}&APPID=${apiKey}`;
     const api = lat && lon ? coordinateAPI : zipAPI;
-    
+    console.log('api', api);
     axios
       .get(api)
       .then(response => {
@@ -50,6 +51,9 @@ class App extends Component {
       })
       .catch(err => {
         console.log('Error happened during fetching!', err);
+        this.setState({
+          error: 'There was a problem getting forecast data.'
+        });
       });
   }
 
@@ -59,7 +63,7 @@ class App extends Component {
     const zipAPI = `https://api.openweathermap.org/data/2.5/weather?zip=${zipcode},us&units=${units}&APPID=${apiKey}`;
     const coordinateAPI = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&APPID=${apiKey}`;
     const api = lat && lon ? coordinateAPI : zipAPI;
-    
+    console.log('api', api);
     axios
       .get(api)
       .then(response => {
@@ -70,6 +74,9 @@ class App extends Component {
       })
       .catch(err => {
         console.log('Error happened during fetching!', err);
+        this.setState({
+          error: 'There was a problem getting current weather data.'
+        });
       });
   }
   
@@ -108,14 +115,17 @@ class App extends Component {
         }, this.getForecast());
       })
       .catch(err => {
+        this.setState({
+          error: 'There was a problem looking up your zip code.'
+        });
         console.log('Error happened during fetching!', err);
       });
   }  
   
   render() {
     
-    const { city, currentWeather, forecast, zipcode } = this.state;
-
+    const { city, currentWeather, error, forecast, zipcode } = this.state;
+    console.log('error', error);
     return (
       <div className={styles.app}>
         <header className={styles.header}>
@@ -124,10 +134,10 @@ class App extends Component {
           <button onClick={this.getForecast} className={styles.submitButton}>Get My Forecast</button>       
           {city ? <h1 className={styles.city}>Forecast for {city}</h1> : null }
         </header>
-        { currentWeather ? <div className={styles.forecastBody}>
+        { error || !currentWeather || !forecast ? <p className={styles.error}>{error}</p> : <div className={styles.forecastBody}>
           <CurrentWeather currentWeather={currentWeather} forecast={forecast}/>
           <Forecast forecast={forecast} />
-        </div> : null }
+        </div> }
       </div>
     );
   }

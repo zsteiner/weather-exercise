@@ -13,7 +13,7 @@ import WeatherIcon from '../WeatherIcon/WeatherIcon';
 const CurrentWeather = ({ currentWeather, forecast }) => {
   
   const currentTemp = currentWeather.main && Math.round(currentWeather.main.temp, 0);
-  const conditions = currentWeather.weather[0].main;
+  const conditions = currentWeather.weather && currentWeather.weather[0].main;
  
   const today = moment().format("MMM D");
   const groupedByDay = groupWeatherByDay(forecast);
