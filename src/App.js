@@ -97,7 +97,6 @@ class App extends Component {
   
   inputSubmit = (event) => {
     if (event.which === 13 || event.keyCode === 13) {
-      console.log('Enter', event)
       this.getForecast();
     }
   }
