@@ -25,6 +25,10 @@ class App extends Component {
     };
   }
   
+  componentDidMount() {
+    this.getLocation();
+  }
+  
   getForecast = () => {
     this.getForecastData();
     this.getCurrentWeatherData();
@@ -101,7 +105,7 @@ class App extends Component {
       .then(response => {
         this.setState({
           zipcode: response.data.results[0].address_components[8].long_name,
-        });
+        }, this.getForecast());
       })
       .catch(err => {
         console.log('Error happened during fetching!', err);

@@ -17,9 +17,7 @@ const CurrentWeather = ({ currentWeather, forecast }) => {
  
   const today = moment().format("MMM D");
   const groupedByDay = groupWeatherByDay(forecast);
-  const forecastToday = groupedByDay.get('Jan 30');
-  
-  console.log('forecastToday', today, groupedByDay, forecastToday);
+  const forecastToday = groupedByDay[today];
   
   return (
     <aside className={styles.currentWeather}>
@@ -51,7 +49,7 @@ const CurrentWeather = ({ currentWeather, forecast }) => {
         </div>
       </section>
       <h3 className={styles.hourlyHeading}>Hourly</h3>
-      {/* <ForecastDay forecast={forecastToday} hideDate /> */}
+      {<ForecastDay forecast={forecastToday} hideDate />}
     </aside>
   );
 };
