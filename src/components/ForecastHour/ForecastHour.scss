@@ -3,7 +3,7 @@ $hours: 8;
 .forecastHour {
   text-align: center;
   margin-bottom: 1em;
-  padding-right: 1em;
+  padding-right: .75em;
   flex: 0 0 ((1 / $hours) * 100%);
   
   &:last-child {
@@ -15,6 +15,10 @@ $hours: 8;
   display: block;
   font-size: .75em;
   margin: .5em 0;
+  
+  span {
+    font-variant: small-caps;  
+  }
 }
 
 .temp {
@@ -26,6 +30,6 @@ $hours: 8;
 
 .icon {
   display: block;
-  font-size: 2.25em;
+  font-size: 2em;
   flex: 0 0 3rem;
 }

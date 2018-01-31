@@ -7,11 +7,12 @@ import WeatherIcon from '../WeatherIcon/WeatherIcon';
 import styles from './ForecastHour.scss';
 
 const ForecastHour = ({ forecast }) => {
-  const time = moment(forecast.dt*1000).format("h a");
+  const time = moment(forecast.dt*1000).format("h");
+  const label = moment(forecast.dt*1000).format("a");
     
   return (
     <li className={styles.forecastHour}>
-      <time className={styles.time}>{time}</time>
+      <time className={styles.time}>{time}<span>{label}</span></time>
       <WeatherIcon 
         className={styles.icon}
         id={forecast.weather[0].id} 
