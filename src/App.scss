@@ -68,4 +68,16 @@
 .error {
   text-align: center;
   font-size: 1.5em;
+  
+  &:not(:empty)::before {
+    content: '☀️🌧🌩⛅️🌨️';
+    font-size: 1.75em;
+    display: block;
+    margin-bottom: .5rem;
+    letter-spacing: .25em;
+    
+    @include respond-to(medium) {
+      font-size: 2.5em;
+    }
+  }
 }
