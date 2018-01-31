@@ -8,7 +8,7 @@ import ForecastHour from '../ForecastHour/ForecastHour';
 import styles from './ForecastDay.scss';
 
 const ForecastDay = ({ forecast, hideDate, twoRow }) => {
-  const forecastItems = forecast.map( (item, index) => {
+  const forecastItems = forecast && forecast.map( (item, index) => {
     return (<ForecastHour key={index} forecast={item} />);
   });
 

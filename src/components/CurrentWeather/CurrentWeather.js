@@ -19,6 +19,8 @@ const CurrentWeather = ({ currentWeather, forecast }) => {
   const groupedByDay = groupWeatherByDay(forecast);
   const forecastToday = groupedByDay[today];
   
+  console.log(currentWeather, forecastToday);
+  
   return (
     <aside className={styles.currentWeather}>
       <Date 
@@ -48,7 +50,7 @@ const CurrentWeather = ({ currentWeather, forecast }) => {
           </p>
         </div>
       </section>
-      <h3 className={styles.hourlyHeading}>Hourly Forecast</h3>
+      {forecastToday ? <h3 className={styles.hourlyHeading}>Hourly Forecast</h3> : null }
       {<ForecastDay forecast={forecastToday} hideDate twoRow />}
     </aside>
   );
