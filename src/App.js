@@ -40,8 +40,8 @@ class App extends Component {
     
     const zipAPI = `https://api.openweathermap.org/data/2.5/forecast?zip=${zipcode},us&units=${units}&APPID=${apiKey}`;
     const coordinateAPI = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=${units}&APPID=${apiKey}`;
-    const api = lat && lon ? coordinateAPI : zipAPI;
-    console.log('api', api);
+    const api = lat && lon && !zipcode ? coordinateAPI : zipAPI;
+
     axios
       .get(api)
       .then(response => {
@@ -62,8 +62,8 @@ class App extends Component {
     
     const zipAPI = `https://api.openweathermap.org/data/2.5/weather?zip=${zipcode},us&units=${units}&APPID=${apiKey}`;
     const coordinateAPI = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&APPID=${apiKey}`;
-    const api = lat && lon ? coordinateAPI : zipAPI;
-    console.log('api', api);
+    const api = lat && lon && !zipcode ? coordinateAPI : zipAPI;
+ 
     axios
       .get(api)
       .then(response => {
@@ -82,7 +82,7 @@ class App extends Component {
   
   updateZip = (event) => {
     const zipcode = event.target.value;
-    
+
     this.setState({
       zipcode: zipcode
     });
@@ -125,7 +125,7 @@ class App extends Component {
   render() {
     
     const { city, currentWeather, error, forecast, zipcode } = this.state;
-    console.log('error', error);
+
     return (
       <div className={styles.app}>
         <header className={styles.header}>
