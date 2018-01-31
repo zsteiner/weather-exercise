@@ -7,7 +7,7 @@ import ForecastHour from '../ForecastHour/ForecastHour';
 
 import styles from './ForecastDay.scss';
 
-const ForecastDay = ({ forecast, hideDate, twoRow }) => {
+const ForecastDay = ({ forecast, hideDate, isToday, twoRow }) => {
   const forecastItems = forecast && forecast.map( (item, index) => {
     return (<ForecastHour key={index} forecast={item} />);
   });
@@ -16,6 +16,10 @@ const ForecastDay = ({ forecast, hideDate, twoRow }) => {
     [styles.forecast]: true,
     [styles.twoRow]: twoRow,
   });
+  
+  if (isToday) {
+    return null;
+  }
   
   return (
     <article className={styles.forecastDay}>
@@ -30,6 +34,7 @@ const ForecastDay = ({ forecast, hideDate, twoRow }) => {
 ForecastDay.propTypes = {
   forecast: PropTypes.array.isRequired,
   hideDate: PropTypes.bool,
+  isToday: PropTypes.bool,
   twoRow: PropTypes.bool
 };
 
